@@ -1,4 +1,4 @@
-var ffmpeg = require('./ffmpeg-node.js');
+var ffmpeg = require('./index.js');
 
 ffmpeg.mp4(
    './test.3gp',

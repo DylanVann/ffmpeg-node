@@ -4,17 +4,17 @@
  * for web video. Requires a  ffmpeg compiled with support for mp4/ogg/webm.
  */
 
-var path = require('path'),
-    _ = require('underscore'),
-    child_process = require('child_process'),
-    spawn = child_process.spawn,
-    helpers = require('./helpers.js'),
-    that = this,
-    queue = exports.queue = [],
-    maxActive = 4, // Maximum of active FFMpeg jobs
-    active = 0;
+const path = require('path')
+const _ = require('underscore')
+const child_process = require('child_process')
+const spawn = child_process.spawn
+const helpers = require('./helpers.js')
+const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path
 
-
+let that = this
+let queue = exports.queue = []
+let maxActive = 4 // Maximum of active FFMpeg jobs
+let active = 0
 
 function push (job) {
    queue.push(job);
@@ -46,7 +46,7 @@ exports.exec = function (params, callback) {
    if (params instanceof Array && params.length > 2) {
 
       var stderr = '', stdout = '',
-         ffmpeg = spawn('ffmpeg', params);
+         ffmpeg = spawn(ffmpegPath, params);
 
       ffmpeg.stderr.on('data', function (err) {
          stderr += err;
