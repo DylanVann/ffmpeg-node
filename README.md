@@ -1,20 +1,29 @@
-#FFMPEG-NODE
+# ffmpeg-node
 
-Node.js module to control ffmpeg
-### To install
->npm install ffmpeg-node
+Node.js module to control ffmpeg.
 
-### Usage
+## Installation
 
-```   
+```bash
+# npm
+npm install ffmpeg-node
+
+# yarn
+yarn add ffmpeg-node
+```
+
+## Usage
+
+```js
 ffmpeg.call(
-      [ ... ],                 // array of ffmpeg flags
-      callback                 // function to call after ffmpeg is done
-   );
-   ```
+    [ ... ],                 // array of ffmpeg flags
+    callback                 // function to call after ffmpeg is done
+);
+```
 
 Examples:
->See file test.js
+
+> See file test.js
 
 These are the ffmpeg commands used by the module for the convenience methods.
 (If you know how to improve them for better quality/speed, please let me know).
